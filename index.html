@@ -29,7 +29,7 @@
         }
         .btn-container {
             display: grid;
-            grid-template: repeat(1, 4, min-content);
+            grid-template: repeat(1, 5, min-content);
             gap: 5px;
         }
         button {
@@ -64,6 +64,7 @@
             <button onclick="append('-')">-</button>
             <button onclick="append(0)">0</button>
             <button onclick="append('.')">.</button>
+            <button onclick="sqrt()">SQRT</button>
             <button onclick="calculate()">=</button>
             <button onclick="append('*')">*</button>
         </div>
@@ -80,6 +81,13 @@
         function calculate() {
             try {
                 displayElement.innerHTML += '=' + eval(displayElement.innerHTML).toFixed(2);
+            } catch (e) {
+                displayElement.innerHTML = 'Error';
+            }
+        }
+        function sqrt() {
+            try {
+                displayElement.innerHTML = Math.sqrt(parseFloat(displayElement.innerHTML)).toFixed(2);
             } catch (e) {
                 displayElement.innerHTML = 'Error';
             }
